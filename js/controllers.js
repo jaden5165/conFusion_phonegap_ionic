@@ -126,7 +126,7 @@ angular.module('conFusion.controllers', [])
                 maximumImagesCount: 1,
                 width: 100,
                 height: 100,
-                quality: 50,
+                quality: 50
             };
             $scope.getPicture = function() {
                 $cordovaImagePicker.getPictures(options2)
