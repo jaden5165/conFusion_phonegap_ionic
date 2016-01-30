@@ -130,10 +130,8 @@ angular.module('conFusion.controllers', [])
             };
             $scope.getPicture = function() {
                 $cordovaImagePicker.getPictures(options2)
-                    .then(function (results) {
-                    for (var i = 0; i < results.length; i++) {
-                        console.log('Image URI: ' + results[i]);
-                    }
+                    .then(function (imageData) {
+                    $scope.registration.imgSrc = "data:image/jpeg;base64," + imageData;
                 }, function(error) {
                     // error getting photos
                     console.log("cannot get pictures!");
