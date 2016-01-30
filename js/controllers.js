@@ -233,15 +233,14 @@ angular.module('conFusion.controllers', [])
                 if (res) {
                     console.log('Ok to delete');
                     favoriteFactory.deleteFromFavorites(index);
+                    $ionicPlatform.ready(function(){
+                        $cordovaVibration.vibrate(20000);
+                    });
                 } else {
                     console.log('Canceled delete');
                 }
             });
             $scope.shouldShowDelete = false;
-            
-            $ionicPlatform.ready(function(){
-                $cordovaVibration.vibrate(20000);
-            });
         };
     }])
 
