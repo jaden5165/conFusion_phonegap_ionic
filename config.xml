@@ -34,6 +34,7 @@
   <gap:plugin name="org.apache.cordova.battery-status" />
   <gap:plugin name="org.apache.cordova.camera" />
   <gap:plugin name="org.apache.cordova.vibration" />
+  <gap:plugin name="com.synconset.imagepicker" />
 
   <icon src="icon.png"/>
   <icon src="resources/ios/icon/icon@2x.png" gap:platform="ios" width="114" height="114"/>
