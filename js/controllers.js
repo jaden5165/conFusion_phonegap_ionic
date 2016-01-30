@@ -134,7 +134,7 @@ angular.module('conFusion.controllers', [])
                     $scope.registration.imgSrc = imageData;
                 }, function(error) {
                     // error getting photos
-                    console.log("cannot get pictures!");
+                    alert.log("cannot get pictures!");
                     console.log(error);
                 });
             };
