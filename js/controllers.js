@@ -124,14 +124,16 @@ angular.module('conFusion.controllers', [])
 
             var options2 = {
                 maximumImagesCount: 1,
-                width: 100,
-                height: 100,
-                quality: 50
+                width: 800,
+                height: 800,
+                quality: 80
             };
             $scope.getPicture = function() {
-                $cordovaImagePicker.getPictures(options2)
-                    .then(function (imageData) {
-                    $scope.registration.imgSrc = imageData;
+                $cordovaImagePicker.getPictures(options2).then(function (imageData) {
+                    for (var i = 0; i < imageData.length; i++) {
+                        console.log('Image URI: ' + imageData[i]);   // Print image URI
+                        $scope.registration.imgSrc = imageData[i];
+                    }
                 }, function(error) {
                     // error getting photos
                     alert.log("cannot get pictures!");
