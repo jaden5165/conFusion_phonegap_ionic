@@ -235,6 +235,7 @@ angular.module('conFusion.controllers', [])
                     favoriteFactory.deleteFromFavorites(index);
                     $ionicPlatform.ready(function(){
                         $cordovaVibration.vibrate(20000);
+                        console.log("Vibrating...")
                     });
                 } else {
                     console.log('Canceled delete');
