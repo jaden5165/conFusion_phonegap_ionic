@@ -2,7 +2,7 @@
 
 angular.module('conFusion.services', ['ngResource'])
 //    .constant("baseURL","http://localhost:3000/")
-    .constant("baseURL","http://10.221.18.14:3000/")
+    .constant("baseURL","http://json-server-confusion.herokuapp.com/")
     .factory('menuFactory', ['$resource', 'baseURL', function($resource,baseURL) {
         return $resource(baseURL+"dishes/:id",null,  {
             'update':{
