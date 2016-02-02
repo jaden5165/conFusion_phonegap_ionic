@@ -276,7 +276,10 @@ angular.module('conFusion.controllers', [])
 
         $scope.baseURL = baseURL;
         $scope.dish = {};
-        $scope.comment = {};
+        $scope.comment = {
+            rating: 1
+        };
+        $scope.orderText = "rating";
         $scope.showDish = false;
         $scope.message="Loading ...";
 
@@ -325,6 +328,9 @@ angular.module('conFusion.controllers', [])
             scope: $scope
         }).then(function(modal) {
             $scope.commentForm = modal;
+            $scope.myForm = {
+                form:{}
+            };
         });
 
         // Triggered in the reserve modal to close it
@@ -340,19 +346,21 @@ angular.module('conFusion.controllers', [])
         };
 
         $scope.submitComment = function(){
-            var date =  $filter('date')(Date.now(), "MMM. dd, yyyy");
-            var commentResult = {
-                "rating": $scope.comment.rating,
-                "comment": $scope.comment.text,
-                "author": $scope.comment.name,
-                "date": date
+            $scope.date =  $filter('date')(Date.now(), "MMM. dd, yyyy");
+
+            $scope.commentResult = {
+                rating: $scope.comment.rating,
+                comment: $scope.comment.text,
+                author: $scope.comment.name,
+                date: $scope.date
             };
-            console.log("Rating:" + $scope.comment.rating);
-            console.log("Name:" + $scope.comment.text);
-            console.log("Comment:" + $scope.comment.name);
-            console.log("Date:" + date);
-            $scope.dish.comments.push(commentResult);
+
+            $scope.dish.comments.push($scope.commentResult);
+            menuFactory.update({id:$scope.dish.id},$scope.dish);
             $scope.closeComment();
+            $scope.comment = {
+                rating: 1
+            };
         };
     }])
 

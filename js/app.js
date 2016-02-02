@@ -32,9 +32,7 @@ angular.module('conFusion', ['ionic', 'conFusion.controllers', 'conFusion.servic
     });
 
     $rootScope.$on('loading:hide', function(){
-        $timeout(function(){
             $ionicLoading.hide();
-        }, 1000);
     });
 
     $rootScope.$on('$stateChangeStart', function(){
